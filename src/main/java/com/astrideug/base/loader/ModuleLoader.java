@@ -3,6 +3,7 @@ package com.astrideug.base.loader;
 import com.astrideug.base.ProjectBase;
 import com.astrideug.base.reflections.transform.ModuleTransformer;
 import com.astrideug.base.reflections.transform.impl.chain.ChainTransformer;
+import com.astrideug.base.reflections.transform.impl.config.ConfigTransformer;
 import com.astrideug.base.reflections.transform.impl.spigotlistener.SubListenerTransformer;
 import lombok.Getter;
 import lombok.SneakyThrows;
@@ -19,6 +20,7 @@ public class ModuleLoader {
     public ModuleLoader() {
         moduleTransformers.add(new SubListenerTransformer());
         moduleTransformers.add(new ChainTransformer());
+        moduleTransformers.add(new ConfigTransformer());
     }
 
     @SneakyThrows

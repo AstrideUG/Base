@@ -164,18 +164,14 @@
         </dependency>
 
         <dependency>
-            <groupId>net.bytebuddy</groupId>
-            <artifactId>byte-buddy</artifactId>
-            <version>1.10.1</version>
-            <scope>compile</scope>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>7.1</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy-agent -->
         <dependency>
-            <groupId>net.bytebuddy</groupId>
-            <artifactId>byte-buddy-agent</artifactId>
-            <version>1.10.1</version>
-            <scope>compile</scope>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-util</artifactId>
+            <version>7.1</version>
         </dependency>
 
     </dependencies>

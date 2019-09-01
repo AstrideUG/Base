@@ -59,6 +59,9 @@ public class JarLoader {
             } else if (je.getName().endsWith(".json")) {
                 Gson gson = new Gson();
                 JsonObject jsonObject = gson.fromJson(new JsonReader(new InputStreamReader(new ByteArrayInputStream(buffer.toByteArray()))), JsonObject.class);
+
+                jsonObject.addProperty("iJsonFileName", je.getName());
+
                 jsonObjects.add(jsonObject);
                 continue;
             }

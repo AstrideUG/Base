@@ -31,6 +31,8 @@ public class ClazzLoader extends ClassLoader {
         return super.getResourceAsStream(name);
     }
 
+
+
     public void setClassContent(byte[] data){
         classdata = new byte[data.length];
         System.arraycopy(data, 0, classdata, 0, data.length);
@@ -40,24 +42,28 @@ public class ClazzLoader extends ClassLoader {
     public void setClassContent(String name, byte[] data){
         classdata = new byte[data.length];
         System.arraycopy(data, 0, classdata, 0, data.length);
+
         classes.put(name, classdata);
     }
 
     public Class findClass(String name) throws ClassNotFoundException {
+
         Class result = null;
+
+
         try {
             this.classdata = classes.get(name);
             result = defineClass(name, this.classdata,0,this.classdata.length,null);
             if (result == null) {
-                return super.loadClass(name, true);
+                result = super.loadClass(name, true);
             }
-            return result;
         } catch(SecurityException se){
             result = super.loadClass(name, true);
         } catch(Exception e){
             System.out.println("Class " + name + " was not found: " + e.getMessage());
             return null;
         }
+
         return result;
     }
 
